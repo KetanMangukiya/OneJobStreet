@@ -1,0 +1,18 @@
+<%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+<div class="field-group">
+  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.password_field :current_password,class:"form-control" %>
+</div>
+  <div class="field-group">
+    <%= f.label :password, "Password" %><br />
+    <%= f.password_field :password, :autocomplete => "off",class:"form-control"  %>
+  </div>
+  <div class="field-group">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation,class:"form-control" %>
+  </div>
+</br>
+  <div class="form-group">
+    <%= f.submit "Submit", class:"btn btn-primary btn-block btn-lg", tabindex:"7" %>
+      </div>
+<% end %>

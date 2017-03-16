@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20170302045102_add_use_refe_to_education_detail.rb

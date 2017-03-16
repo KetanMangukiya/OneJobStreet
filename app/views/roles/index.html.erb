@@ -1,0 +1,19 @@
+<h1>Role Table</h1><br><br>
+
+<table border='2'>
+	<tr>
+		<th> Name </th>
+		<th>Action</th>
+	</tr>
+	<tr>
+	<% @roles.each do |a| %>
+		<td><center><%= a.name%></center></td>
+		<td><center><%= link_to "Show", a %><br>
+		<%= link_to "Edit", edit_role_path(a) %><br>
+		<%= link_to "Delete", role_path(a) ,method: :delete, data:{confirm: "Are you sure to delete?"} %></center></td>
+	</tr>
+<% end %>
+<table>
+<br>
+<br>
+<%= link_to "Add New Record", new_role_path %>

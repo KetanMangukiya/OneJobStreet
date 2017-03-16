@@ -1,0 +1,11 @@
+<%= form_for @job_type do |f| %>
+<table>
+  <tr>
+    <td><%=f.label("Enter Job Type")%></td>
+    <td><%=f.text_field :name%></td>
+  </tr>
+  <tr>
+    <td><%=f.submit%></td>
+  </tr>
+</table>
+<%end%>

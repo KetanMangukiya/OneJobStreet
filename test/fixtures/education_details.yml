@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qualification: MyString
+  course: MyString
+  specialization: MyString
+  college: MyString
+  course_type: MyString
+  passing_year: MyString
+
+two:
+  qualification: MyString
+  course: MyString
+  specialization: MyString
+  college: MyString
+  course_type: MyString
+  passing_year: MyString

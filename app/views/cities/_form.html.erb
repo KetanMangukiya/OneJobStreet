@@ -1,0 +1,13 @@
+<%=form_for @city do |f| %>
+<table>
+  <tr>
+    <td><%= f.label("City")%></td>
+    <td><%=f.text_field :name%></td>
+
+  </tr>
+  <tr>
+    <td><%=f.submit  %></td>
+  </tr>
+</table>
+
+<%end%>

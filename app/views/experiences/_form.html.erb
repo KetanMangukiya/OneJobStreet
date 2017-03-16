@@ -1,0 +1,56 @@
+<%= form_for @experience do |f| %>
+<!-- <%= f.object.new_record?%> -->
+<h2 align="center" ><span class="glyphicon glyphicon-briefcase"></span> Experience / Employer  Details </h2>
+
+<div class="form-group">
+  <%= f.label("Current Designation:") %>
+  <%= f.text_field :designation,class:"form-control",required: true %>
+<div>
+
+<div class="form-group">
+  <%= f.label("Current Company:") %>
+  <%= f.text_field :company,class:"form-control",required: true %>
+<div>
+  <div class="form-group">
+
+                  <%= f.label("Experiences :") %>
+                    <div class="input-group">
+                      <%= f.select :working_since_year,0..30, { include_blank: true },class:"input-small form-control" %>
+                    <!--  <input type="text" class="input-small form-control"name="start" /> -->
+                       <span class="input-group-addon">Years</span>
+                      <%= f.select :working_since_month,0..11, { include_blank: true },class:"input-small form-control" %>
+                       <span class="input-group-addon">Months</span>
+                    </div>
+                </div>
+
+<div class="form-group">
+  <%= f.label("Current Location:") %>
+  <!-- <%= f.collection_select(:location, Location.all,:name,:name) %> -->
+  <%= f.select :location, Location.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, class:"input-small form-control" %>
+<div>
+</br>
+<div class="form-group">
+  <%= f.label("Duration of notice period:") %>
+  <%= f.select :notice ,options_for_select([["15 days or less","15 days or less"],["1 month","1 month"],["2 months","2 months"],["3 months","3 months"],["More than 3 months","More than 3 months"]]),{ include_blank: true }, class:"input-small form-control"  %>
+<div>
+
+<div class="form-group">
+  <%= f.label :skills,"Skills : " %>
+  <%= f.text_field :skills,class:"form-control" %>
+  <small id="passwordHelpInline" class="text-muted">
+      you can add multiple skills here, seperated by " , "
+  </small>
+<div>
+
+  <div class="form-group">
+    <div class="col-xs-4 col-md-3 "><%= f.submit "Submit", class:"btn btn-primary btn-block btn-lg", tabindex:"7" %></div>
+      </div>
+  <% end %>
+
+      <div class="form-group">
+     <div class="col-xs-4 col-md-3 ">
+      <%= link_to new_experience_path, class: "btn btn-success btn-block btn-lg" do %>
+      <i class="glyphicon glyphicon-plus"></i> Add More Experience
+  <% end %>
+  </div>
+  </div>

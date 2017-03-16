@@ -1,0 +1,113 @@
+<%=form_for @company do |f|%>
+<center>
+<h2>Enter Company Details</h2>
+
+<div class="form-group">
+  <%=f.label("Company Name",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :name,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Website",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :website,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Select Industry",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%= f.collection_select(:industry_type_id, IndustryType.all, :id, :name,{ include_blank: false }, class: "form-control")%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Description",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_area :description,class:"form-control"%>
+  </div>
+  </div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Address",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_area :address,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Select City",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.collection_select(:city_id,City.all,:id,:name,{ include_blank: false }, class: "form-control")%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Contact",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :contact,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Email",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :email,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Goole Plus",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :google_plus,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Linked In",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :linkedin,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <%=f.label("Facebook",class: "col-sm-2 control-label") %>
+  <div class="col-sm-8">
+    <%=f.text_field :facebook,class:"form-control"%>
+  </div>
+</div>
+
+<br><br>
+
+<div class="form-group">
+  <div class="col-sm-8">
+    <%= f.submit class: "btn btn-success btn-mini"%>
+  </div>
+</div>
+
+<br><br>
+
+</center>
+<%end%>

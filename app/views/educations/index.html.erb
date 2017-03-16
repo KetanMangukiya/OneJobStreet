@@ -1,0 +1,8 @@
+<% @educations.each do |e| %>
+  </br><br></br>
+  Qualification: <%= e.qualification %></br>
+  <%= link_to "Edit qualification",edit_education_path(e)%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "Delete",education_path(e), method: :delete, data: { confirm: 'Are you sure?' }%>
+
+<% end %>
+<br /><br /><br /><%= link_to "Back" ,new_education_path %>

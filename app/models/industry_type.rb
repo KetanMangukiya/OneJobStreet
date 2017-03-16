@@ -1,0 +1,3 @@
+class IndustryType < ApplicationRecord
+
+end

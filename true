@@ -1,0 +1,2 @@
+      invoke  active_record
+   identical    db/migrate/20170302043122_add_use_ref_to_education_detail.rb

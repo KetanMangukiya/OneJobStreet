@@ -1,0 +1,52 @@
+<%= form_for  @education_detail  do |f| %>
+<h2 align="center" ><span class="glyphicon glyphicon-education"></span> Education Details </h2>
+<div class="form-group">
+
+                <%= f.label("Highest Qualification :") %>
+                  <div class="input-group">
+                    <%= f.select :qualification, Education.all.collect {|p| [ p.qualification, p.id ] }, { include_blank: true },class:"input-small form-control" %>
+                  <!--  <input type="text" class="input-small form-control"name="start" /> -->
+                     <span class="input-group-addon">Education</span>
+                    <%= f.select :qualification,1960..2020, { include_blank: true },class:"input-small form-control" %>
+                     <span class="input-group-addon">Passing Years</span>
+                  </div>
+              </div>
+
+  <div class="form-group">
+    <%= f.label("Course :") %>
+    <%= f.text_field :course,class:"form-control",required: true %>
+  </div>
+  <div class="form-group">
+  <%= f.label("Specialization :") %>
+  <%= f.text_field :specialization,class:"form-control",required: true%>
+  </div>
+<div class="form-group">
+
+  <%= f.label("College / University :") %>
+  <%= f.text_field :college,class:"form-control",required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label("Course type :") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.radio_button(:course_type,"part time")%>
+  <%= f.label(:course_type_part,"Part Time")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.radio_button(:course_type,"full time")%>
+  <%= f.label(:course_type_full,"Full Time")%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= f.radio_button(:course_type,"correspondence")%>
+  <%= f.label(:course_type_correspondent,"Correspondence")%><br>
+</div>
+
+
+
+<div class="form-group">
+  <div class="col-xs-4 col-md-3 "><%= f.submit "Submit", class:"btn btn-primary btn-block btn-lg", tabindex:"7" %></div>
+    </div>
+<% end %>
+
+    <div class="form-group">
+   <div class="col-xs-4 col-md-3 ">
+    <%= link_to new_education_detail_path, class: "btn btn-success btn-block btn-lg" do %>
+    <i class="glyphicon glyphicon-plus"></i> Add More Education
+<% end %>
+</div>
+</div>

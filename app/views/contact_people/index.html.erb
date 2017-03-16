@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <tr>
+    <th>Company Name</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Action</th>
+  </tr>
+  <% @contact_people.each do |contact_person|%>
+  <tr>
+    <td><%=contact_person.company.name%></td>
+    <td><%=contact_person.first_name%></td>
+    <td><%=contact_person.last_name%></td>
+    <td><%=contact_person.contact%></td>
+    <td><%=contact_person.email%></td>
+    <td><%=contact_person.role.name%></td>
+    <td>
+      <%=link_to "Edit",edit_contact_person_path(contact_person)%>
+      <%=link_to "Delete",contact_person,method: :Delete%>
+    </td>
+<%= @view %>
+  </tr>
+  <%= @view %>
+  <%end%>
+</table>
+<%= link_to "Add Person",new_contact_person_path%>
+<%= @view %>

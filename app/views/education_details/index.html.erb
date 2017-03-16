@@ -1,0 +1,11 @@
+<% @education_details.each do |e| %>
+  <br/><br/>Highest Qualification :<%= e.qualification %>
+  <br/>Course :<%= e.course %>
+  <br/>Specialization :<%= e.specialization %>
+  <br/>College / University :<%= e.college %>
+  <br/>Course type :<%= e.course_type %>
+  <br/>Passing year :<%= e.passing_year %><br/><br/>
+  <%= link_to "Edit" , edit_education_detail_path(e) %> &nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "Delete",education_detail_path(e), method: :delete, data: { confirm: 'Are you sure?' }%><br /><br />
+<% end %>
+<br><br><br><%= link_to "Back" , new_education_detail_path %>

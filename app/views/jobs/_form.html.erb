@@ -1,0 +1,113 @@
+<%=form_for @job do |f|%>
+<center><h3>Posting Job</h3></center>
+<div class="form-group">
+  <%=f.label("Select Company",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.collection_select(:company_id, current_employer.companies , :id, :name,{ include_blank: true },class:"form-control")%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Select Contact Person",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.grouped_collection_select(:contact_person_id,current_employer.companies.order(:name),:contact_people,:name, :id, :first_name,{ include_blank: true  },class:"form-control")%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Select Job Type",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.collection_select(:job_type_id, JobType.all, :id, :name,{ include_blank: false },class:"form-control")%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Select Role",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.collection_select(:role_id, Role.all, :id, :name,{ include_blank: false },class:"form-control")%>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="form-group">
+  <%=f.label("Enter Total Vacancy",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.text_field :vacancy,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Description",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%=f.text_area :description,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Salary",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.text_field :salary,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Address",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%=f.text_area :address,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Experience",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%=f.select :experience,(0..30),{ include_blank: false },class:"form-control",class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Start Date",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%=f.date_field :start_date,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("End Date",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%=f.date_field :end_date,class:"form-control"%>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%=f.label("Select Contact Person",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.select( :qualification, [['MCA'],['ME'],['M.Com'],['MBA'],['BCA'],['B.com'],['BE'],['Diploma']],{ include_blank: false },class:"form-control") %>
+  </div>
+</div>
+<br>
+<br>
+<div class="form-group">
+  <%= f.label(:skills ,"Skill",class:"col-sm-2 control-label") %>
+  <div class="col-sm-6">
+    <%= f.text_field :user_skills,class:"form-control","data-pre" => @job.skills.map(&:attributes).to_json %>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <td><%=f.submit class: "btn btn-success btn-mini"%></td>
+</div>
+
+<%end%>

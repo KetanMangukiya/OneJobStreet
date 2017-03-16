@@ -1,0 +1,8 @@
+<% @locations.each do |l| %>
+  </br><br></br>
+  Location name: <%= l.name %></br>
+  <%= link_to "Edit city name",edit_location_path(l)%>
+  <%= link_to "Delete",location_path(l), method: :delete, data: { confirm: 'Are you sure?' }%>
+
+<% end %>
+<br /><br /><br /><%= link_to "Back" ,new_location_path %>

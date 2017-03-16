@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <tr>
+    <th>Company Name</th>
+    <th>Industrt Type</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <% @companies.each do |company|%>
+  <tr>
+    <td><%=company.name%></td>
+    <td><%=company.industry_type.name%></td>
+    <td><%=company.address%></td>
+    <td><%=company.city.name%></td>
+    <td><%=company.contact%></td>
+    <td><%=company.email%></td>
+    <td>
+      <%=link_to "View Profile",company%>
+      <%=link_to "Edit",edit_company_path(company)%>
+      <%=link_to "Delete",company,method: :Delete%>
+    </td>
+
+  </tr>
+
+  <%end%>
+</table>
+
+
+<%= link_to "Add New Company",new_company_path%>
