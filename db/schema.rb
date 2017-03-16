@@ -143,10 +143,11 @@ ActiveRecord::Schema.define(version: 20170309082618) do
     t.integer "skill_id", null: false
   end
 
-  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "locations", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT" do |t|
+    t.integer "id"
+    t.string  "name",  limit: 20
+    t.integer "COL 3"
+    t.string  "COL 4", limit: 25
   end
 
   create_table "ownskills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -166,10 +167,17 @@ ActiveRecord::Schema.define(version: 20170309082618) do
     t.index ["industry_type_id"], name: "index_roles_on_industry_type_id", using: :btree
   end
 
-  create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+  create_table "seekers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "experience_id"
+    t.index ["experience_id"], name: "index_skills_on_experience_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
